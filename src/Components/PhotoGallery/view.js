@@ -8,7 +8,7 @@ export default class PhotoGalleryView extends Component {
         {!this.props.photos && !this.props.searchTag && 
           <Jumbotron fluid style={{ display:"flex", flexDirection:"column", alignItems:"center"}}>
             <h3>Welcome to this Photo Search App</h3>
-            <p>Please type something that you are interested in and start searching for cool images</p>
+            <p>Please type something that you are interested in and start searching for cool images!</p>
 
           </Jumbotron>
         }
@@ -27,6 +27,7 @@ export default class PhotoGalleryView extends Component {
             return <Figure>
               <Figure.Image rounded width={500}
               src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="pic" />
+              <div style={{ width:"500px" }}><p>Title: {photo.title}</p></div>
             </Figure>
           })}</div></div>
           
