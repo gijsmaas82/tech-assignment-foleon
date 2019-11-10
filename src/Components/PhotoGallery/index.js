@@ -1,38 +1,30 @@
 import React, { Component } from 'react'
 import { getPhotos } from '../../actions'
 import { connect } from 'react-redux'
+import PhotoGalleryView from './view'
+
 
 
 class PhotoGallery extends Component {
 
-  componentDidMount() {
-
-    this.props.getPhotos()
-  }
-
   render() {
-
-    
 
     return (
       <div>
-        <h1> Photo's </h1>
-        {!this.props.photos && '...loading'}
-        <div>{this.props.photos && 
-          this.props.photos.map(photo => {
-            return <div key={photo.id}>
-              <p>{photo.title}</p>
-              <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="pic" />
-              </div>
-          })
-        }</div>
+        <PhotoGalleryView 
+          photos={this.props.photos}
+          searchTag={this.props.searchTag}
+        />
       </div>
     )
   }
 }
 
 function mapStateToProps (state) {
-  return { photos: state.photos }
+  return { 
+    photos: state.photos,
+    searchTag: state.searchTag
+   }
 }
 
 export default connect (mapStateToProps, { getPhotos })(PhotoGallery)
