@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SearchBarView from './view'
-import { getPhotos } from '../../actions'
+import { getPhotos, getSearchTag } from '../../actions'
 import { connect } from 'react-redux'
 
 
@@ -11,19 +11,21 @@ class SearchBar extends Component {
 
   onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      tag: event.target.value
     })
   }
 
   onSubmit = (event) => {
     event.preventDefault()
+    this.props.getSearchTag(this.state.tag)
     this.props.getPhotos(this.state.tag)
+    this.setState({ tag: '' })
   }
   render() {
     return (
       <div>
         <SearchBarView 
-          values={this.state}
+          tag={this.state.tag}
           onSubmit={this.onSubmit}
           onChange={this.onChange}
         />
@@ -32,4 +34,4 @@ class SearchBar extends Component {
   }
 }
 
-export default connect (null, { getPhotos })(SearchBar)
+export default connect (null, { getPhotos, getSearchTag })(SearchBar)

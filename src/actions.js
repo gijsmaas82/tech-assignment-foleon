@@ -20,3 +20,19 @@ export const getPhotos = (tag) => dispatch => {
       .catch(console.error) 
 }
 
+export const SET_SEARCHTAG = 'SET_SEARCHTAG'
+
+function setSearchTag(payload) {
+  return {
+    type: SET_SEARCHTAG,
+    payload
+  }
+}
+
+export const getSearchTag = (tag) => dispatch => {
+
+  const action = setSearchTag(tag)
+  dispatch(action)
+
+}
+
