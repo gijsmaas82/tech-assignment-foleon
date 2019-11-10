@@ -12,8 +12,6 @@ class PhotoGallery extends Component {
 
   render() {
 
-    
-
     return (
       <div>
         <h1> Photo's </h1>
