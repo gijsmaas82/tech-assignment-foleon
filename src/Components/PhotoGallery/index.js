@@ -8,10 +8,10 @@ export default class PhotoGallery extends Component {
 
   componentDidMount() {
 
-    const photos = 15
+    const photos = 10
 
-    request('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=55217044f524433a3d1d724c549d7adb&format=json&nojsoncallback=1')
-      .query(`per_page=${photos}&tags=dogs`)
+    request('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6c116b8d53864e12de7b50956b88932e&format=json&nojsoncallback=1')
+      .query(`per_page=${photos}&tags=girls`)
       .then(response => {
         this.setState({ photos: response.body.photos.photo })
         console.log('state:', this.state.photos)
@@ -27,7 +27,7 @@ export default class PhotoGallery extends Component {
         <div>{this.state.photos && 
           this.state.photos.map(photo => {
             return <div key={photo.id}>
-              <p>{photo.id}</p>
+              <p>{photo.title}</p>
               <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="pic" />
               </div>
           })
