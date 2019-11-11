@@ -2,8 +2,8 @@
 
 This is an assignment where I needed to built an app that searches the Flickr API. You can search in the navbar. The pictures are displayed and paginated.
 
-For the latest deployed version click on the link below:
-[Home App](https://competent-wiles-1fe4cc.netlify.com/)
+For the latest deployed version click on the link:
+[Flickr Search App](https://flickr-search-app.netlify.com/)
 
 ### Getting started
 
