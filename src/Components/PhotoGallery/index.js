@@ -14,6 +14,7 @@ class PhotoGallery extends Component {
     this.setState({ currentPage: Number(event.currentTarget.dataset.pagenumber) })
     console.log('value', event.currentTarget.dataset.pagenumber, 'page', this.props.pages)
     this.props.getPage(event.currentTarget.dataset.pagenumber)
+    window.scrollTo(0, 0)
   }
 
 

@@ -42,10 +42,10 @@ export default class PhotoGalleryView extends Component {
               <Pagination.Item onClick={this.props.onPageClick} data-pagenumber={this.props.currentPage + 3}>{this.props.currentPage + 3}</Pagination.Item>
               <Pagination.Item onClick={this.props.onPageClick} data-pagenumber={this.props.currentPage + 4}>{this.props.currentPage + 4}</Pagination.Item>
               <Pagination.Ellipsis />
-              <Pagination.Item onClick={this.props.onPageClick} data-pagenumber={this.props.pages}>{this.props.pages}</Pagination.Item>
+              <Pagination.Item onClick={this.props.onPageClick} data-pagenumber={this.props.pages} disabled>{this.props.pages}</Pagination.Item>
               {this.props.currentPage === this.props.pages ? <Pagination.Next disabled/> :
               <Pagination.Next onClick={this.props.onPageClick} data-pagenumber={this.props.currentPage + 1}/>}
-              <Pagination.Last onClick={this.props.onPageClick} data-pagenumber={this.props.pages}/>
+              <Pagination.Last onClick={this.props.onPageClick} data-pagenumber={this.props.pages} disabled/>
             </Pagination>}</div>
           </div>
           
