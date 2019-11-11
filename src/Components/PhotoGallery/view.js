@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Figure, Spinner, Jumbotron, Pagination } from 'react-bootstrap'
+import { Spinner, Jumbotron, Pagination, Figure, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
 export default class PhotoGalleryView extends Component {
   render() {
@@ -23,11 +23,21 @@ export default class PhotoGalleryView extends Component {
                 <h3>Results for {this.props.searchTag}</h3>
 
               </Jumbotron>
-            <div style={{ display:"flex", flexDirection:"column", alignItems:"center"}}>{this.props.photos.map(photo => {
+            <div style={{ display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"space-evenly"}}>{this.props.photos.map(photo => {
             return <Figure>
-              <Figure.Image rounded width={500}
+              <OverlayTrigger
+                key="bottom"
+                placement="bottom"
+                overlay={
+                  <Tooltip id="bottom">
+                    <p>Title: {photo.title}</p>
+                  </Tooltip>
+                }
+              >
+              <Figure.Image rounded height={300}
               src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="pic" />
-              <div style={{ width:"500px" }}><p>Title: {photo.title}</p></div>
+              </OverlayTrigger>
+              {/* <div style={{ width:"500px" }}><p>Title: {photo.title}</p></div> */}
             </Figure>
           })}</div>
           <div style={{ display:"flex", justifyContent:"center"}}>
