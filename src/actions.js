@@ -17,8 +17,30 @@ export const getPhotos = (tag) => dispatch => {
       .then(response => {
         const action = setPhotos(response.body.photos.photo)
         dispatch(action)
-        const pages = setPagination(response.body.photos)
+        const pages = setPagination(response.body.photos.pages)
         dispatch(pages)
+      })
+      .catch(console.error) 
+}
+
+export const SET_PAGE = 'SET_PAGE'
+
+function setPage(payload) {
+  return {
+    type: SET_PAGE,
+    payload
+  }
+}
+
+export const getPage = (pageNumber) => (dispatch, getState) => {  
+  const state = getState()
+  const { searchTag } = state
+
+  request(`${url}`)
+      .query(`page=${pageNumber}&tags=${searchTag}&per_page=10`)
+      .then(response => {
+        const action = setPage(response.body.photos.photo)
+        dispatch(action)
       })
       .catch(console.error) 
 }
