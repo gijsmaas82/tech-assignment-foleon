@@ -26,5 +26,5 @@ The pictures are displayed with flexbox. So it is responsive. If you hover on a 
 
 ### Pagination
 
-Under the pictures you can select a new page and a new query is made to the Flickr Api with the correct page number. It also displays the number of pages.
+Under the pictures you can select a new page and a new query is made to the Flickr Api with the correct page number and the same searchtag from the redux-store. It also displays the number of pages.
 
