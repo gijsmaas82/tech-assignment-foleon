@@ -1,4 +1,4 @@
-# Home Project
+# Flickr Search App
 
 This is an assignment where I needed to built an app that searches the Flickr API. You can search in the navbar. The pictures are displayed and paginated.
 
